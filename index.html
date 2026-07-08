@@ -73,29 +73,48 @@
       <div id="home" class="panel-container relative">
         <!-- Navigasi -->
         <nav
-          class="absolute w-full top-0 left-0 z-50 py-6 px-10 flex justify-between items-center bg-cream/90 backdrop-blur-sm rounded-t-[20px]"
+          class="fixed w-full top-0 left-0 z-50 py-6 px-10 flex justify-between items-center bg-cream/90 backdrop-blur-sm rounded-t-[20px]"
         >
           <div class="flex items-center gap-2">
             <i data-lucide="leaf" class="w-6 h-6 text-sage"></i>
-            <span class="font-serif text-xl font-semibold tracking-wide"
-              >Serenity Massage</span
-            >
+            <span class="font-serif text-xl font-semibold tracking-wide">
+              Serenity Massage
+            </span>
           </div>
-          <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
-            <a href="#home" class="text-gold font-semibold">Home</a>
-            <a href="#layanan" class="hover:text-gold transition">Layanan</a>
-            <a href="#area" class="hover:text-gold transition">Area</a>
-            <a href="#testimoni" class="hover:text-gold transition"
-              >Testimoni</a
+
+          <div class="flex items-center gap-4">
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
+              <a href="#home" class="text-gold font-semibold">Home</a>
+              <a href="#layanan" class="hover:text-gold transition">Layanan</a>
+              <a href="#area" class="hover:text-gold transition">Area</a>
+              <a href="#testimoni" class="hover:text-gold transition"
+                >Testimoni</a
+              >
+            </div>
+
+            <button
+              onclick="bookWA()"
+              class="bg-gold hover:bg-yellow-600 text-white px-6 py-2 rounded-full text-sm font-semibold transition"
             >
+              Book Now
+            </button>
+            <button id="menu-btn" class="md:hidden p-2">
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
           </div>
-          <button
-            onclick="bookWA()"
-            class="bg-gold hover:bg-yellow-600 text-white px-6 py-2 rounded-full text-sm font-semibold transition"
-          >
-            Book Now
-          </button>
         </nav>
+
+        <div
+          id="mobile-menu"
+          class="hidden fixed top-16 left-0 w-full bg-transparant/95 backdrop-blur-md p-6 flex-col gap-4 text-center shadow-lg z-40"
+        >
+          <a href="#home" class="block py-2 text-gray-800 border-b">Home</a>
+          <a href="#layanan" class="block py-2 text-gray-800 border-b"
+            >Layanan</a
+          >
+          <a href="#area" class="block py-2 text-gray-800 border-b">Area</a>
+          <a href="#testimoni" class="block py-2 text-gray-800">Testimoni</a>
+        </div>
 
         <!-- Layout Split (Kiri Teks, Kanan Gambar) -->
         <div class="flex flex-col md:flex-row min-h-[600px]">
@@ -122,7 +141,7 @@
 
           <div class="w-full md:w-1/2 relative h-[400px] md:h-auto">
             <img
-              src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              src="https://media.istockphoto.com/id/1479350890/photo/relax-spa-and-zen-woman-with-candles-for-beauty-physical-therapy-or-skincare-female-client-on.jpg?b=1&s=612x612&w=0&k=20&c=AkMcHoRZsW12O8Qqqhc6hYUFzpiRiYJpM_0jK_VWfmA="
               alt="Spa view"
               class="absolute inset-0 w-full h-full object-cover"
             />
@@ -185,56 +204,58 @@
             const spaMenu = [
               {
                 name: "Traditional Massage",
-                img: "1600334129128-685c5582fd35",
+                img: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80",
                 p1: "250.000",
                 p15: "300.000",
                 p2: "350.000",
               },
               {
                 name: "Javanese Massage",
-                img: "1544161515-4ab6ce6db874",
+                img: "https://www.edesspa.com/cdn/shop/files/massages-img-e1521724396889.png?v=1755160110&width=493",
                 p1: "250.000",
                 p15: "300.000",
                 p2: "350.000",
               },
               {
                 name: "Swedish Massage",
-                img: "1519823551278-64ac92734fb1",
+                img: "https://i.pinimg.com/736x/7b/aa/c9/7baac98f7b41b667b3ca14e055a6b330.jpg",
+                position: "center 65%",
                 p1: "250.000",
                 p15: "300.000",
                 p2: "350.000",
               },
               {
                 name: "Aromatherapy Massage",
-                img: "1616394584738-fc6e612e71b9",
+                img: "https://i.pinimg.com/736x/ac/da/b7/acdab7b6410e3148355fa12ce5576bf3.jpg",
+                position: "center 80%",
                 p1: "300.000",
                 p15: "400.000",
                 p2: "500.000",
               },
               {
                 name: "Balinese Massage",
-                img: "1544161514-61c02ab7c784",
+                img: "https://tse4.mm.bing.net/th/id/OIP.Ti89Y89W4Dn7ztAHOZo1TAHaE8?r=0&w=1200&h=800&rs=1&pid=ImgDetMain&o=7&rm=3",
                 p1: "250.000",
                 p15: "300.000",
                 p2: "350.000",
               },
               {
                 name: "Deep Tissue Massage",
-                img: "1515377905703-c4788e51af15",
+                img: "https://images.openai.com/static-rsc-4/HIUGyroL5KSP07FVbHssyPIfdE7c8I8ZyUUMUwJSEFbXX1VN7-a6y3BqjdPHoS2LFcv_6J0G0bnuHaDhQgGeZaoLYf4ryeakaHy_6NigakwIwdkRmhSK3_oeXP9KB-1Fx4nUTA6DAkyCOixSKqpAEkvYuXBb8pIKHStlklggFG6I95vqFZlo5lR0YONah60d?purpose=fullsize",
                 p1: "250.000",
                 p15: "400.000",
                 p2: "500.000",
               },
               {
                 name: "Sport Massage",
-                img: "1552693673-1bf958298935",
+                img: "https://i.pinimg.com/736x/03/b1/1a/03b11a2eb8535d10c71fd7ae13f4501e.jpg",
                 p1: "250.000",
                 p15: "300.000",
                 p2: "450.000",
               },
               {
                 name: "Hot Stone Massage",
-                img: "1591343395902-1adcb454c4e2",
+                img: "https://images.unsplash.com/photo-1696841212541-449ca29397cc?auto=format&fit=crop&w=800&q=80",
                 p1: "350.000",
                 p15: "450.000",
                 p2: "600.000",
@@ -244,21 +265,40 @@
             spaMenu.forEach((menu) => {
               document.write(`
                             <div class="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col h-full border border-[#e4eade]">
-                                <img src="https://images.unsplash.com/photo-${menu.img}?auto=format&fit=crop&w=400&q=80" alt="${menu.name}" class="w-full h-28 object-cover">
+                              <img
+    src="${menu.img}"
+    alt="${menu.name}"
+    class="w-full h-28 object-cover"
+    style="object-position: ${menu.position || "center"};"
+>
                                 <div class="p-4 flex flex-col flex-grow">
-                                    <h3 class="font-bold text-sm text-dark leading-tight mb-3 font-serif">${menu.name}</h3>
+                                    <h3 class="font-bold text-sm text-dark leading-tight mb-3 font-serif">${
+                                      menu.name
+                                    }</h3>
                                     <div class="flex-grow space-y-2 mb-2">
-                                        <div class="flex justify-between items-center text-[11px] group cursor-pointer hover:bg-cream p-1 rounded transition" onclick="bookWA('${menu.name}', '1 Hour', 'Rp${menu.p1}')">
+                                        <div class="flex justify-between items-center text-[11px] group cursor-pointer hover:bg-cream p-1 rounded transition" onclick="bookWA('${
+                                          menu.name
+                                        }', '1 Hour', 'Rp${menu.p1}')">
                                             <span class="text-gray-500 font-medium">1 Hour</span>
-                                            <span class="font-bold text-dark group-hover:text-gold flex items-center">Rp${menu.p1} <i data-lucide="arrow-right" class="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-gold"></i></span>
+                                            <span class="font-bold text-dark group-hover:text-gold flex items-center">Rp${
+                                              menu.p1
+                                            } <i data-lucide="arrow-right" class="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-gold"></i></span>
                                         </div>
-                                        <div class="flex justify-between items-center text-[11px] group cursor-pointer hover:bg-cream p-1 rounded transition" onclick="bookWA('${menu.name}', '1.5 Hours', 'Rp${menu.p15}')">
+                                        <div class="flex justify-between items-center text-[11px] group cursor-pointer hover:bg-cream p-1 rounded transition" onclick="bookWA('${
+                                          menu.name
+                                        }', '1.5 Hours', 'Rp${menu.p15}')">
                                             <span class="text-gray-500 font-medium">1.5 Hours</span>
-                                            <span class="font-bold text-dark group-hover:text-gold flex items-center">Rp${menu.p15} <i data-lucide="arrow-right" class="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-gold"></i></span>
+                                            <span class="font-bold text-dark group-hover:text-gold flex items-center">Rp${
+                                              menu.p15
+                                            } <i data-lucide="arrow-right" class="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-gold"></i></span>
                                         </div>
-                                        <div class="flex justify-between items-center text-[11px] group cursor-pointer hover:bg-cream p-1 rounded transition" onclick="bookWA('${menu.name}', '2 Hours', 'Rp${menu.p2}')">
+                                        <div class="flex justify-between items-center text-[11px] group cursor-pointer hover:bg-cream p-1 rounded transition" onclick="bookWA('${
+                                          menu.name
+                                        }', '2 Hours', 'Rp${menu.p2}')">
                                             <span class="text-gray-500 font-medium">2 Hours</span>
-                                            <span class="font-bold text-dark group-hover:text-gold flex items-center">Rp${menu.p2} <i data-lucide="arrow-right" class="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-gold"></i></span>
+                                            <span class="font-bold text-dark group-hover:text-gold flex items-center">Rp${
+                                              menu.p2
+                                            } <i data-lucide="arrow-right" class="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-gold"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -630,7 +670,7 @@
       }
 
       // 2. Logika Pemesanan WhatsApp yang Cerdas (Clean)
-      const WA_NUMBER = "628111222333"; // Ganti dengan nomor asli Anda
+      const WA_NUMBER = "081564744343"; // Ganti dengan nomor asli Anda
 
       // Fungsi yang menerima Parameter spesifik dari Menu, atau default jika dari tombol umum
       function bookWA(serviceName = null, duration = null, price = null) {
@@ -652,6 +692,15 @@
           "_blank"
         );
       }
+
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        // Fungsi ini akan menghapus class 'hidden' jika ada, atau menambahkannya jika tidak ada
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("flex");
+      });
     </script>
   </body>
 </html>
